@@ -1,3 +1,26 @@
 {
-  "presets": ["next/babel"]
+    "presets": ["@babel/preset-env", "@babel/preset-react", "next/babel"],
+    "plugins": [
+        [
+            "@babel/plugin-transform-runtime",
+            {
+                "corejs": 3,
+                "regenerator": true
+            }
+        ]
+    ],
+    "env": {
+        "production": {
+            "plugins": [
+                [
+                    "transform-react-remove-prop-types",
+                    {
+                        "mode": "wrap",
+                        "ignoreFilenames": ["node_modules"]
+                    }
+                ],
+                ["transform-remove-console", { "exclude": ["error", "warn"] }]
+            ]
+        }
+    }
 }
