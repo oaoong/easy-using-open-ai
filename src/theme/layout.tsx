@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 interface Props {
-  children: React.ReactNode;
+    children: React.ReactNode;
 }
 
 export default function Layout({ children }: Props) {
-  return <main className="custom-container">{children}</main>;
+    return <main className='custom-container'>{children}</main>;
 }
