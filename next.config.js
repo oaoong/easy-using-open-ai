@@ -1,4 +1,6 @@
 const path = require('path');
+const TerserPlugin = require('terser-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -36,4 +38,4 @@ const nextConfig = {
     },
 };
 
-module.exports = nextConfig;
+module.exports = { output: 'standalone', ...nextConfig };
