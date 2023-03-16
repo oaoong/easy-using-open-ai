@@ -1,22 +1,39 @@
-const path = require("path");
+const path = require('path');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-  distDir: ".next",
-  sassOptions: {
-    includePaths: [path.join(__dirname, "src/styles")],
-    prependData: `@import "src/styles/_variables.scss"; @import "src/styles/_mixins.scss";`,
-  },
-  webpack: (config, { isServer }) => {
-    const prod = process.env.NODE_ENV === "production";
-    return {
-      ...config,
-      mode: prod ? "production" : "development",
-      devtool: prod ? "source-map" : "eval-cheap-module-source-map",
-    };
-  },
+    reactStrictMode: true,
+    swcMinify: true,
+    distDir: '.next',
+    sassOptions: {
+        includePaths: [path.join(__dirname, 'src/styles')],
+        prependData: `@import "src/styles/_variables.scss"; @import "src/styles/_mixins.scss";`,
+    },
+    webpack: (config, { dev, isServer }) => {
+        config.resolve.alias = {
+            ...config.resolve.alias,
+            ...require('./config/webpack.aliases'),
+        };
+        config.plugins.push(...require('./config/webpack.plugins'));
+        config.module.rules.push(...require('./config/webpack.rules'));
+        if (!dev) {
+            config.optimization.minimizer = [
+                new TerserPlugin({
+                    terserOptions: {
+                        compress: {
+                            drop_console: true,
+                        },
+                    },
+                }),
+                new CssMinimizerPlugin(),
+            ];
+            config.optimization.splitChunks = {
+                chunks: 'all',
+            };
+        }
+
+        return config;
+    },
 };
 
 module.exports = nextConfig;
