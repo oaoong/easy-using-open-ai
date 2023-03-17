@@ -13,7 +13,7 @@
         "ts": "tsc --noEmit --incremental",
         "ts:watch": "yarn ts --watch",
         "lint": "next lint",
-        "test": "jest --watch",
+        "test": "jest --watch --updateSnapshot",
         "test:ci": "jest --ci",
         "vercel-deploy": "next build && next export"
     },
@@ -40,6 +40,7 @@
         "@types/testing-library__jest-dom": "5.14.5",
         "@typescript-eslint/eslint-plugin": "^5.55.0",
         "@typescript-eslint/parser": "^5.55.0",
+        "babel-jest": "^29.5.0",
         "babel-loader": "^9.1.2",
         "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
         "babel-plugin-transform-remove-console": "^6.9.4",
