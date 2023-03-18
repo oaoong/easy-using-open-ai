@@ -8,8 +8,8 @@ const BundleAnalyzerPlugin =
 module.exports = [
     new ForkTsCheckerWebpackPlugin(),
     new MiniCssExtractPlugin({
-        filename: '[name].[chunkhash].css',
-        chunkFilename: '[name].[chunkhash].chunk.css',
+        filename: 'static/chunks/[name].[chunkhash].css',
+        chunkFilename: 'static/chunks/[name].[chunkhash].chunk.css',
     }),
     new BundleAnalyzerPlugin({
         analyzerMode: 'static',
