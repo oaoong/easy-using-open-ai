@@ -1,5 +1,8 @@
-$primary-color: #64ff00;
+$primary-color: #609966;
+$second-color: #9dc08b;
+$deep-color: #40513b;
+$light-color: #edf1d6;
 
 :export {
-    primaryColor: $primary-color;
+    --color-main: $primary-color;
 }
