@@ -4,14 +4,22 @@ import LinkButton, { LinkButtonProps } from '../../molecules/linkButton';
 import './style.scss';
 
 export interface LinkButtonListProps {
-    buttonData: LinkButtonProps[];
+    buttonData: Omit<LinkButtonProps, 'setPage'>[];
+    setPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export default function LinkButtonList({ buttonData }: LinkButtonListProps) {
+export default function LinkButtonList({
+    buttonData,
+    setPage,
+}: LinkButtonListProps) {
     const renderLinkButtons = buttonData?.map((data) => {
         return (
             <div className='button-divider' key={data.title}>
-                <LinkButton title={data.title} link={data.link} />
+                <LinkButton
+                    title={data.title}
+                    page={data.page}
+                    setPage={setPage}
+                />
             </div>
         );
     });
