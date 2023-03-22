@@ -1,20 +1,20 @@
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 
 import './style.scss';
 
 export interface LinkButtonProps {
     title?: string;
-    link?: string;
+    page?: number;
+    setPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
-export default function LinkButton({
+export default function PageButton({
     title = 'Button',
-    link = '/',
+    page = 0,
+    setPage,
 }: LinkButtonProps) {
-    const router = useRouter();
     const onClickButton = () => {
-        router.push(link);
+        setPage(page);
     };
     return (
         <button className='button-container' onClick={onClickButton}>
