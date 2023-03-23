@@ -13,7 +13,9 @@ import Refactoring from '../../organisms/refactoring';
 import Summary from '../../organisms/summary';
 import TitleMaker from '../../organisms/titleMaker';
 
-export default function HomeTemplate({ buttonData }: LinkButtonListProps) {
+export default function HomeTemplate({
+    buttonData,
+}: Omit<LinkButtonListProps, 'setPage'>) {
     const [page, setPage] = useRecoilState(pageState);
 
     const pageList = [
