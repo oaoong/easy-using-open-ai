@@ -17,7 +17,7 @@ export default function PageButton({
         setPage(page);
     };
     return (
-        <button className='button-container' onClick={onClickButton}>
+        <button className={'button-container-' + page} onClick={onClickButton}>
             <div className='title'>{title}</div>
             <div className='arrow'>
                 <Image
