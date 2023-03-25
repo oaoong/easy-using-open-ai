@@ -13,7 +13,8 @@
         "ts": "tsc --noEmit --incremental",
         "ts:watch": "yarn ts --watch",
         "lint": "next lint",
-        "test": "jest --watch --updateSnapshot",
+        "test": "jest --updateSnapshot",
+        "test:watch": "jest --watch --updateSnapshot",
         "test:ci": "jest --ci",
         "vercel-deploy": "next build && next export"
     },
