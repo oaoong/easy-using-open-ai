@@ -1,5 +1,5 @@
 import React from 'react';
-import InputField, { InputFieldProps } from '../../atoms/inputField';
+import InputField from '../../atoms/inputField';
 import TextField, { TextFieldProps } from '../../atoms/textField';
 
 export interface BoardProps {
