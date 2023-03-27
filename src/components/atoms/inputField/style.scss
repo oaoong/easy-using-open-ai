@@ -1,0 +1,27 @@
+@use '@styles/variables' as myColor;
+
+.inputField {
+    width: 100%;
+    height: 2rem;
+    border: 3px solid myColor.$second-color;
+    background-color: #{myColor.$light-color};
+    outline: none;
+}
+
+.submit-button {
+    height: 2rem;
+    border: 3px solid myColor.$second-color;
+    border-left: none;
+    background-color: #{myColor.$light-color};
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: #{myColor.$light-color};
+}
