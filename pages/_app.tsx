@@ -6,6 +6,12 @@ import Layout from '@/src/theme/layout';
 import '@/styles/global.scss';
 
 export default function MyApp({ Component, pageProps }: AppProps) {
+    if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
+        (async () => {
+            await import('@/src/mocks');
+        })();
+    }
+
     return (
         <RecoilRoot>
             <Layout>
