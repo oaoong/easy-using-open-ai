@@ -1,29 +1,19 @@
 import { rest } from 'msw';
-
-export interface FriendResponse {
+import { apiAddress, env } from '@/config';
+export interface openAIResponse {
     data: {
-        name: string;
-        info: {
-            brithday: string;
-            mbti: string;
-            blood: string;
-            etc: string;
-        };
+        response: string;
     };
 }
 
 export const handlers = [
-    // Handles a GET /user request
-    rest.get<FriendResponse>('https://backend.dev/friends', (req, res, ctx) => {
+    rest.post<openAIResponse>(`${apiAddress[env]}/query`, (req, res, ctx) => {
+        console.log('request', req);
         return res(
             ctx.status(200),
             ctx.json({
-                name: 'x',
-                info: {
-                    brithday: '0_월 __일',
-                    mbti: 'ISFP',
-                    blood: '_형',
-                    etc: '',
+                data: {
+                    response: 'hi return success',
                 },
             }),
         );

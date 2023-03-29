@@ -3,7 +3,10 @@ import React, { useState, useEffect } from 'react';
 
 import { apiAddress, env } from '@/config';
 
-const api = axios.create({ baseURL: apiAddress[env], withCredentials: true });
+const api = axios.create({
+    baseURL: apiAddress[env],
+    withCredentials: true,
+});
 
 const AxiosInterceptor = ({ children }: { children: React.ReactElement }) => {
     const [isSet, setIsSet] = useState(false);
