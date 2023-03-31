@@ -2,7 +2,7 @@ import React, { createContext, useState, useContext } from 'react';
 import { useQuery } from 'react-query';
 import { getOpenAIResponse } from '@/src/api';
 import InputField from '../../atoms/inputField';
-import TextField, { TextFieldProps } from '../../atoms/textField';
+import TextField from '../../atoms/textField';
 
 interface IBoardContextValue {
     answerText: string;
