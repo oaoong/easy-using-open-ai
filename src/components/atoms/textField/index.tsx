@@ -5,9 +5,7 @@ export interface TextFieldProps {
     answerText?: string;
 }
 
-export default function TextField({
-    answerText = '이곳에 결과가 표시됩니다.',
-}: TextFieldProps) {
+export default function TextField({ answerText = '' }: TextFieldProps) {
     return (
         <div>
             <textarea

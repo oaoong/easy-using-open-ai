@@ -7,14 +7,11 @@ export interface openAIResponse {
 }
 
 export const handlers = [
-    rest.post<openAIResponse>(`${apiAddress[env]}/query`, (req, res, ctx) => {
-        console.log('request', req);
+    rest.post<openAIResponse>(`${apiAddress[env]}/openai`, (req, res, ctx) => {
         return res(
             ctx.status(200),
             ctx.json({
-                data: {
-                    response: 'hi return success',
-                },
+                result: 'hi return success',
             }),
         );
     }),

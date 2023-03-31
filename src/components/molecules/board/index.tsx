@@ -1,5 +1,6 @@
+import { AxiosError, AxiosResponse } from 'axios';
 import React, { createContext, useState, useContext } from 'react';
-import { useQuery } from 'react-query';
+import { useMutation } from 'react-query';
 import { getOpenAIResponse } from '@/src/api';
 import InputField from '../../atoms/inputField';
 import TextField from '../../atoms/textField';
@@ -20,24 +21,25 @@ const BoardContext = createContext<IBoardContextValue | undefined>({
 export default function Board({ children }: { children?: React.ReactNode }) {
     const [answerText, setAnswerText] = useState('hi there');
     const [inputValue, setInputValue] = useState('');
+
+    const getAnswer = useMutation(
+        (inputValue: string) => getOpenAIResponse(inputValue),
+        {
+            onSuccess: (data) => {
+                setAnswerText(data?.result);
+            },
+            onError: (error: AxiosError) => {
+                setAnswerText('error occured');
+                console.log(error);
+            },
+        },
+    );
+
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        getAnswer.mutate(inputValue);
         setInputValue('');
         e.preventDefault();
-        console.log('Submitted!');
     };
-
-    useQuery({
-        queryKey: ['getSummaryAnswer', inputValue],
-        queryFn: () =>
-            getOpenAIResponse({
-                prompt: inputValue,
-            }),
-        onSuccess: (data) => {
-            setAnswerText(data.data.response);
-            // eslint-disable-next-line no-console
-            console.log(data.data.response);
-        },
-    });
 
     return (
         <BoardContext.Provider
