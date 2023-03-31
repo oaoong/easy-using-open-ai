@@ -11,8 +11,8 @@ const queryClient = new QueryClient();
 
 export default function MyApp({ Component, pageProps }: AppProps) {
     if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
-        (() => {
-            require('@/src/mocks');
+        (async () => {
+            await import('@/src/mocks');
         })();
     }
 

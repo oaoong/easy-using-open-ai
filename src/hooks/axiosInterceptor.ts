@@ -6,6 +6,9 @@ import { apiAddress, env } from '@/config';
 const api = axios.create({
     baseURL: apiAddress[env],
     withCredentials: true,
+    headers: {
+        'Content-Type': 'application/json',
+    },
 });
 
 const AxiosInterceptor = ({ children }: { children: React.ReactElement }) => {
