@@ -8,7 +8,7 @@ export default function Summary() {
     return (
         <div className='summary-container'>
             <Board>
-                <Board.Text textContents='Hello World' />
+                <Board.Text />
                 <Board.Input />
             </Board>
         </div>

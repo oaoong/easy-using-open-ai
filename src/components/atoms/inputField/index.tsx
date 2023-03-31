@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './style.scss';
 
 export interface InputFieldProps {
     onSubmit?: React.FormEventHandler<HTMLFormElement>;
+    inputValue: string;
+    setInputValue?: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export default function InputField() {
-    const [inputValue, setInputValue] = useState('');
-    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        setInputValue('');
-        e.preventDefault();
-        console.log('Submitted!');
-    };
+export default function InputField({
+    onSubmit,
+    inputValue,
+    setInputValue,
+}: InputFieldProps) {
     const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setInputValue(e.target.value);
+        setInputValue && setInputValue(e.target.value);
         e.preventDefault();
     };
 
