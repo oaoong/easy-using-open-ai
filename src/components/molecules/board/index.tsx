@@ -1,4 +1,4 @@
-import { AxiosError, AxiosResponse } from 'axios';
+import { AxiosError } from 'axios';
 import React, { createContext, useState, useContext } from 'react';
 import { useMutation } from 'react-query';
 import { getOpenAIResponse } from '@/src/api';
