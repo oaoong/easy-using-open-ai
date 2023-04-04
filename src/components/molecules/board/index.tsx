@@ -13,7 +13,7 @@ interface IBoardContextValue {
     onSubmit?: React.FormEventHandler<HTMLFormElement>;
 }
 
-const BoardContext = createContext<IBoardContextValue | undefined>({
+export const BoardContext = createContext<IBoardContextValue | undefined>({
     answerText: 'hi there',
     inputValue: '',
 });

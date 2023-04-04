@@ -18,13 +18,18 @@ export default function InputField({
     };
 
     return (
-        <form onSubmit={onSubmit} className='form'>
+        <form onSubmit={onSubmit} className='form' aria-label='form'>
             <input
                 className='inputField'
                 onChange={onChangeInput}
                 value={inputValue}
+                aria-label='input-field'
             />
-            <input className='submit-button' type='submit' />
+            <input
+                className='submit-button'
+                type='submit'
+                aria-label='submit-button'
+            />
         </form>
     );
 }
