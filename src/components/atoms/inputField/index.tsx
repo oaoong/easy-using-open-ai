@@ -4,7 +4,7 @@ import './style.scss';
 export interface InputFieldProps {
     onSubmit?: React.FormEventHandler<HTMLFormElement>;
     inputValue: string;
-    setInputValue?: React.Dispatch<React.SetStateAction<string>>;
+    setInputValue: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export default function InputField({
@@ -13,7 +13,7 @@ export default function InputField({
     setInputValue,
 }: InputFieldProps) {
     const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setInputValue && setInputValue(e.target.value);
+        setInputValue(e.target.value);
         e.preventDefault();
     };
 
