@@ -9,13 +9,16 @@ interface IBoardContextValue {
     answerText: string;
     setAnswerText?: React.Dispatch<React.SetStateAction<string>>;
     inputValue: string;
-    setInputValue?: React.Dispatch<React.SetStateAction<string>>;
+    setInputValue: React.Dispatch<React.SetStateAction<string>> | (() => void);
     onSubmit?: React.FormEventHandler<HTMLFormElement>;
 }
 
 export const BoardContext = createContext<IBoardContextValue | undefined>({
     answerText: 'hi there',
     inputValue: '',
+    setInputValue: () => {
+        /**/
+    },
 });
 
 export default function Board({ children }: { children?: React.ReactNode }) {
