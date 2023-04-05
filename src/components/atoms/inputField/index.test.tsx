@@ -3,25 +3,44 @@ import React from 'react';
 import InputField from './';
 
 describe('InputField 컴포넌트', () => {
-    test('inputValue가 제대로 출력되는지 확인', () => {
+    test('renders InputField', () => {
         const inputValue = 'test input';
-        render(<InputField inputValue={inputValue} />);
+        render(
+            <InputField inputValue={inputValue} setInputValue={jest.fn()} />,
+        );
         const input = screen.getByLabelText('input-field') as HTMLInputElement;
         expect(input.value).toBe(inputValue);
     });
 
-    test('입력한 값이 inputValue에 전달되는지 확인', () => {
-        const inputValue = 'test input';
-
-        render(<InputField inputValue={inputValue} />);
-        const input = screen.getByLabelText('input-field') as HTMLInputElement;
-        fireEvent.change(input, { target: { value: inputValue } });
-        expect(input.value).toBe(inputValue);
-    });
-
-    test('onSubmit 함수가 호출되는지 확인', () => {
+    test('user writing input calls setInputValue', () => {
+        const setInputValue = jest.fn();
         const onSubmit = jest.fn();
-        render(<InputField onSubmit={onSubmit} inputValue='' />);
+        const inputValue = 'test input';
+
+        render(
+            <InputField
+                inputValue={''}
+                setInputValue={setInputValue}
+                onSubmit={onSubmit}
+            />,
+        );
+        const input = screen.getByLabelText('input-field') as HTMLInputElement;
+
+        fireEvent.change(input, { target: { value: inputValue } });
+        expect(setInputValue).toHaveBeenCalledWith(inputValue);
+    });
+
+    test('calls onSubmit function', () => {
+        const onSubmit = jest
+            .fn()
+            .mockImplementation((e) => e.preventDefault());
+        render(
+            <InputField
+                onSubmit={onSubmit}
+                inputValue=''
+                setInputValue={jest.fn()}
+            />,
+        );
         const submitButton = screen.getByLabelText(
             'submit-button',
         ) as HTMLButtonElement;
