@@ -3,7 +3,6 @@ ChatGPT API를 기반으로 원하는 답변을 얻기 위한 정해진 몇가�
 
 > link: https://easy-using-open-ai.vercel.app/
 
----
 ### Environment
 ![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=for-the-badge&logo=Visual%20Studio%20Code&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white)
@@ -14,12 +13,11 @@ ChatGPT API를 기반으로 원하는 답변을 얻기 위한 정해진 몇가�
 
 ### Development
 ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=Next.js&logoColor=white)
-![Typescript](https://img.shields.io/badge/Typescript-3178C6?style=flat-square&logo=Typescript&logoColor=white)
-![Sass](https://img.shields.io/badge/Sass-CC6699?style=flat-square&logo=Sass&logoColor=white)
+![Typescript](https://img.shields.io/badge/Typescript-3178C6?style=for-the-badge&logo=Typescript&logoColor=white)
+![Sass](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=Sass&logoColor=white)
 ![Recoil](https://img.shields.io/badge/recoil-f26b00?style=for-the-badge&logo=white)
 ![React Query](https://img.shields.io/badge/-React%20Query-FF4154?style=for-the-badge&logo=react%20query&logoColor=white)
 
----
 ## how to use project
 ### Requirements
 - [Node.js v18.15.0](https://nodejs.org/ca/blog/release/v18.15.0)
@@ -37,16 +35,13 @@ $ yarn build
 $ yarn start
 ```
 
----
 ## 이슈 및 PR 규칙
 이슈 및 PR 등록 시 적용되어 있는 템플릿 양식을 준수해주세요.
 main, develop branch의 경우 github actions에서 빌드 테스트 및 테스트 코드를 통한 테스트를 자동으로 진행합니다.
 
----
 ## API
 openai에서 제공하는 API를 사용하고 있습니다. 자세한 명세에 대해서는 [링크](https://platform.openai.com/)를 참고해주세요.
 
----
 ## lint 규칙
 ``` json
 {
@@ -136,9 +131,7 @@ openai에서 제공하는 API를 사용하고 있습니다. 자세한 명세에 
                 "props": false
             }
         ],
-        // suppress errors for missing 'import React' in files
         "react/react-in-jsx-scope": "off",
-        // allow jsx syntax in js files (for next.js project)
         "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
         "react-hooks/rules-of-hooks": "error",
         "no-console": ["warn", { "allow": ["warn", "error"] }],
@@ -181,7 +174,6 @@ openai에서 제공하는 API를 사용하고 있습니다. 자세한 명세에 
         "next.config.js"
     ],
     "overrides": [
-        // Only uses Testing Library lint rules in test files
         {
             "files": [
                 "**/__tests__/**/*.[jt]s?(x)",
