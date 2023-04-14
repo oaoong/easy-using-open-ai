@@ -1,5 +1,5 @@
 import React from 'react';
-import BackButton from '../../atoms/backButton/indext';
+import BackButton from '../../atoms/backButton';
 import './_style.scss';
 
 export default function NavBar() {

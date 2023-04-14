@@ -1,0 +1,7 @@
+@use '@styles/variables' as myColor;
+
+.title-container {
+    font-size: 32px;
+    font-weight: 700;
+    color: #{myColor.$primary-color};
+}
