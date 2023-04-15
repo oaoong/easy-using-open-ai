@@ -13,6 +13,11 @@
         border: 2px solid #{myColor.$second-color};
         overflow-y: auto;
 
+        &.slide-appear-active {
+            transform: translateX(-100%);
+            transition: transform 500ms ease-in-out;
+        }
+
         &.slide-enter {
             transform: translateX(0);
         }
