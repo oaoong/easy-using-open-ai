@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './style.scss';
 
 export interface InputFieldProps {
@@ -12,20 +12,35 @@ export default function InputField({
     inputValue,
     setInputValue,
 }: InputFieldProps) {
-    const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const textareaRef = useRef<HTMLTextAreaElement>(null);
+    const submitButtonRef = useRef<HTMLInputElement>(null);
+    const onChangeInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setInputValue(e.target.value);
-        e.preventDefault();
     };
+
+    useEffect(() => {
+        const textarea = textareaRef.current;
+        const submitButton = submitButtonRef.current;
+        if (textarea && submitButton) {
+            textarea.style.height = 'auto';
+            submitButton.style.height = 'auto';
+            textarea.style.height = `${textarea.scrollHeight + 6}px`;
+            submitButton.style.height = `${textarea.scrollHeight + 6}px`;
+        }
+    }, [inputValue]);
 
     return (
         <form onSubmit={onSubmit} className='form' aria-label='form'>
-            <input
+            <textarea
+                ref={textareaRef}
+                rows={1}
                 className='inputField'
                 onChange={onChangeInput}
                 value={inputValue}
                 aria-label='input-field'
             />
             <input
+                ref={submitButtonRef}
                 className='submit-button'
                 type='submit'
                 aria-label='submit-button'
