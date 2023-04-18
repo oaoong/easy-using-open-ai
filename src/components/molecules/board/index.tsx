@@ -2,6 +2,7 @@ import { AxiosError } from 'axios';
 import React, { createContext, useState, useContext } from 'react';
 import { useMutation } from 'react-query';
 import { getOpenAIResponse } from '@/src/api';
+import CodeInputField from '../../atoms/codeInputField';
 import InputField from '../../atoms/inputField';
 import TextField from '../../atoms/textField';
 
@@ -72,6 +73,20 @@ export const Input = function () {
     );
 };
 Board.Input = Input;
+
+export const CodeInput = function () {
+    const { onSubmit, inputValue, setInputValue } = useContext(
+        BoardContext,
+    ) as IBoardContextValue;
+    return (
+        <CodeInputField
+            onSubmit={onSubmit}
+            inputValue={inputValue}
+            setInputValue={setInputValue}
+        />
+    );
+};
+Board.CodeInput = CodeInput;
 
 export const Text = function () {
     const { answerText } = useContext(BoardContext) as IBoardContextValue;
