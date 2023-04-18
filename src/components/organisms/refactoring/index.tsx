@@ -8,7 +8,7 @@ export default function Refactoring() {
         <div className='refactoring-container'>
             <Board>
                 <Board.Text />
-                <Board.Input />
+                <Board.CodeInput />
             </Board>
         </div>
     );
