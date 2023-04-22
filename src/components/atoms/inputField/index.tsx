@@ -4,19 +4,11 @@ import './style.scss';
 export interface InputFieldProps {
     onSubmit?: React.FormEventHandler<HTMLFormElement>;
     inputValue: string;
-    setInputValue: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export default function InputField({
-    onSubmit,
-    inputValue,
-    setInputValue,
-}: InputFieldProps) {
+export default function InputField({ onSubmit, inputValue }: InputFieldProps) {
     const textareaRef = useRef<HTMLTextAreaElement>(null);
     const submitButtonRef = useRef<HTMLInputElement>(null);
-    const onChangeInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setInputValue(e.target.value);
-    };
 
     useEffect(() => {
         const textarea = textareaRef.current;
@@ -33,11 +25,11 @@ export default function InputField({
         <form onSubmit={onSubmit} className='form' aria-label='form'>
             <textarea
                 ref={textareaRef}
-                rows={1}
+                rows={0}
                 className='inputField'
-                onChange={onChangeInput}
                 value={inputValue}
                 aria-label='input-field'
+                readOnly
             />
             <input
                 ref={submitButtonRef}

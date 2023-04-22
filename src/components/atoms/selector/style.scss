@@ -1,0 +1,11 @@
+@use '@styles/variables' as myColor;
+
+.MuiAutocomplete-root {
+    display: inline-block;
+    width: 40%;
+}
+
+.MuiAutocomplete-inputRoot {
+    border: none;
+    border-bottom: 2px solid myColor.$second-color;
+}
