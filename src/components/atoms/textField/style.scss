@@ -4,6 +4,7 @@
     width: 100%;
     height: 20rem;
     border: 3px solid myColor.$second-color;
+    border-radius: 4px;
     background-color: #{myColor.$light-color};
 
     resize: none;

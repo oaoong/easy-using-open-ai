@@ -24,3 +24,20 @@ export const buttonData = [
         page: 6,
     },
 ];
+
+export const inputData = ['인터넷의 역사', '요리법', 'javascript 비동기'];
+
+export const roleData = ['선생님', '10년차 개발자', '마케팅 전문가'];
+
+export const formData = [
+    '리스트',
+    '예시를 들어',
+    '오직 코드만',
+    '{내용} 처럼 중괄호 안에 텍스트',
+];
+
+export const exceptionData = [
+    '답변 외의 내용',
+    '수식이 아닌 내용',
+    '코드가 아닌 내용',
+];

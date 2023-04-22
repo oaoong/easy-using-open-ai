@@ -9,6 +9,8 @@
     position: fixed;
     top: 0;
     padding: 20px 0;
+    background-color: myColor.$light-color;
+    z-index: 100;
 
     font-size: 32px;
     font-weight: 700;
