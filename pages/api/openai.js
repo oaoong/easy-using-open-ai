@@ -34,7 +34,7 @@ export default async function handler(req, res) {
             model: 'text-davinci-003',
             prompt: `다음 질문에 대해서 답변해줘: <${text}>`,
             temperature: 0.8,
-            max_tokens: 100,
+            max_tokens: 600,
         });
         res.status(200).json({ result: response.data.choices[0].text });
     } catch (error) {
