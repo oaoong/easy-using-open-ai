@@ -14,7 +14,7 @@ export default function Summary() {
                         <Board.Question />
                     </Row>
                     <Row>
-                        <Board.Input />
+                        <Board.Input postFix={'\n위 내용을 요약해주세요.'} />
                         <Board.RoleSelector />
                     </Row>
                     <Row>

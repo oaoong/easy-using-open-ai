@@ -24,7 +24,7 @@ export default function Selector({
             value={value}
             onChange={(event, newValue) => {
                 if (newValue) {
-                    setValue(newValue);
+                    setValue(newValue + postfix);
                 }
             }}
             filterOptions={(options, params) => {

@@ -30,7 +30,9 @@ describe('CodeInputField 컴포넌트', () => {
         const input = screen.getByLabelText('input-field') as HTMLInputElement;
 
         fireEvent.change(input, { target: { value: inputValue } });
-        expect(setInputValue).toHaveBeenCalledWith(inputValue);
+        expect(setInputValue).toHaveBeenCalledWith(
+            inputValue + '\n위 코드를 리팩토링해주세요.',
+        );
     });
 
     test('calls onSubmit function', () => {

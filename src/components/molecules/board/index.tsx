@@ -53,9 +53,7 @@ export default function Board({ children }: { children?: React.ReactNode }) {
     const [exception, setException] = useState('');
 
     useEffect(() => {
-        setQuery(
-            `${inputValue}에 대해서 알고싶습니다. ${role}의 입장에서 알려주세요. ${example}의 형식으로 작성해주세요. ${exception}의 사항을 제외해주세요.`,
-        );
+        setQuery(`${inputValue} ${role} ${example} ${exception}`);
     }, [role, inputValue, example, exception]);
 
     const getAnswer = useMutation((text: string) => getOpenAIResponse(text), {
@@ -102,7 +100,7 @@ export const Question = function () {
 };
 Board.Question = Question;
 
-export const Input = function () {
+export const Input = function ({ postFix }: { postFix: string }) {
     const { inputValue, setInputValue } = useContext(
         BoardContext,
     ) as IBoardContextValue;
@@ -110,7 +108,7 @@ export const Input = function () {
         <Selector
             value={inputValue}
             setValue={setInputValue}
-            postfix={'...에 대해서 알고싶어요.'}
+            postfix={postFix}
             valueExample={inputData}
         />
     );
@@ -143,7 +141,7 @@ export const RoleSelector = function () {
         <Selector
             value={role}
             setValue={setRole}
-            postfix={'...의 입장에서 작성해주세요.'}
+            postfix={'의 입장에서 작성해주세요.'}
             valueExample={roleData}
         />
     );
@@ -158,7 +156,7 @@ export const ExampleSelector = function () {
         <Selector
             value={example}
             setValue={setExample}
-            postfix={'...의 형식으로 작성해주세요.'}
+            postfix={'의 형식으로 작성해주세요.'}
             valueExample={formData}
         />
     );
@@ -173,7 +171,7 @@ export const ExceptionSelector = function () {
         <Selector
             value={exception}
             setValue={setException}
-            postfix={'...의 사항을 제외해주세요.'}
+            postfix={'의 사항을 제외해주세요.'}
             valueExample={exceptionData}
         />
     );

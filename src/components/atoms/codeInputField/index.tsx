@@ -17,7 +17,7 @@ export default function CodeInputField({
     const submitButtonRef = useRef<HTMLInputElement>(null);
 
     const onChangeInput = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-        setInputValue(e.target.value);
+        setInputValue(e.target.value + '\n위 코드를 리팩토링해주세요.');
     };
 
     useEffect(() => {
