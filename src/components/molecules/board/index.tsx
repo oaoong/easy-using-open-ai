@@ -57,6 +57,9 @@ export default function Board({ children }: { children?: React.ReactNode }) {
     }, [role, inputValue, example, exception]);
 
     const getAnswer = useMutation((text: string) => getOpenAIResponse(text), {
+        onMutate: () => {
+            setAnswerText('답변을 생성 중입니다. 잠시만 기다려주세요.');
+        },
         onSuccess: (data) => {
             setAnswerText(data?.result);
         },
