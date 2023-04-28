@@ -20,6 +20,8 @@ export default async function handler(req, res) {
     }
 
     const text = req.body.prompt || '';
+    const topP = req.body.topP || 1;
+    const temperature = req.body.temperature || 0.8;
     if (text.trim().length === 0) {
         res.status(400).json({
             error: {
@@ -32,8 +34,9 @@ export default async function handler(req, res) {
     try {
         const response = await openai.createCompletion({
             model: 'text-davinci-003',
-            prompt: `다음 질문에 대해서 답변해줘: <${text}>`,
-            temperature: 0.8,
+            prompt: `${text}`,
+            temperature: temperature,
+            top_p: topP,
             max_tokens: 600,
         });
         res.status(200).json({ result: response.data.choices[0].text });

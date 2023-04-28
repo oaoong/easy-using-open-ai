@@ -7,7 +7,7 @@ import './style.scss';
 export default function Summary() {
     return (
         <div className='summary-container'>
-            <Board>
+            <Board temperature={0.7} topP={1.0}>
                 <Board.Text />
                 <Column>
                     <Row>

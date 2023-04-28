@@ -8,6 +8,12 @@ import InputField from '../../atoms/inputField';
 import Selector from '../../atoms/selector';
 import TextField from '../../atoms/textField';
 
+interface IBoardProps {
+    children: React.ReactNode;
+    temperature: number;
+    topP: number;
+}
+
 interface IBoardContextValue {
     answerText: string;
     setAnswerText?: React.Dispatch<React.SetStateAction<string>>;
@@ -44,7 +50,7 @@ export const BoardContext = createContext<IBoardContextValue | undefined>({
     query: '',
 });
 
-export default function Board({ children }: { children?: React.ReactNode }) {
+export default function Board({ children, temperature, topP }: IBoardProps) {
     const [answerText, setAnswerText] = useState('hi there');
     const [query, setQuery] = useState('');
     const [inputValue, setInputValue] = useState('');
@@ -56,18 +62,26 @@ export default function Board({ children }: { children?: React.ReactNode }) {
         setQuery(`${inputValue} ${role} ${example} ${exception}`);
     }, [role, inputValue, example, exception]);
 
-    const getAnswer = useMutation((text: string) => getOpenAIResponse(text), {
-        onMutate: () => {
-            setAnswerText('답변을 생성 중입니다. 잠시만 기다려주세요.');
+    const getAnswer = useMutation(
+        (text: string) =>
+            getOpenAIResponse({
+                prompt: text,
+                temperature: temperature,
+                topP: topP,
+            }),
+        {
+            onMutate: () => {
+                setAnswerText('답변을 생성 중입니다. 잠시만 기다려주세요.');
+            },
+            onSuccess: (data) => {
+                setAnswerText(data?.result);
+            },
+            onError: (error: AxiosError) => {
+                setAnswerText('error occured');
+                console.log(error);
+            },
         },
-        onSuccess: (data) => {
-            setAnswerText(data?.result);
-        },
-        onError: (error: AxiosError) => {
-            setAnswerText('err or occured');
-            console.log(error);
-        },
-    });
+    );
 
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         getAnswer.mutate(query);

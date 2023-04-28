@@ -7,7 +7,7 @@ import './style.scss';
 export default function Refactoring() {
     return (
         <div className='refactoring-container'>
-            <Board>
+            <Board temperature={0} topP={1.0}>
                 <Board.Text />
                 <Board.CodeInput />
                 <Column>
