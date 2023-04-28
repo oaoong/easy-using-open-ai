@@ -186,5 +186,5 @@ openai에서 제공하는 API를 사용하고 있습니다. 자세한 명세에 
 ```
 
 ## article
-[You’re Using ChatGPT Wrong! Here’s How to Be Ahead of 99% of ChatGPT Users](https://artificialcorner.com/youre-using-chatgpt-wrong-here-s-how-to-be-ahead-of-99-of-chatgpt-users-886a50dabc54)
-[The Ultimate Guide to OpenAI's GPT-3 Language Model](https://www.twilio.com/blog/ultimate-guide-openai-gpt-3-language-model)
+- [You’re Using ChatGPT Wrong! Here’s How to Be Ahead of 99% of ChatGPT Users](https://artificialcorner.com/youre-using-chatgpt-wrong-here-s-how-to-be-ahead-of-99-of-chatgpt-users-886a50dabc54)
+- [The Ultimate Guide to OpenAI's GPT-3 Language Model](https://www.twilio.com/blog/ultimate-guide-openai-gpt-3-language-model)
