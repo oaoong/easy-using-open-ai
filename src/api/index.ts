@@ -1,8 +1,20 @@
 import api from '../hooks/axiosInterceptor';
 
-export const getOpenAIResponse = async (params: string) => {
+interface IopenAIRequest {
+    prompt: string;
+    temperature: number;
+    topP: number;
+}
+
+export const getOpenAIResponse = async ({
+    prompt,
+    temperature,
+    topP,
+}: IopenAIRequest) => {
     const response = await api.post('/openai', {
-        prompt: params,
+        prompt: prompt,
+        temperature: temperature,
+        topP: topP,
     });
     return response.data;
 };

@@ -7,7 +7,7 @@ import './style.scss';
 export default function TitleMaker() {
     return (
         <div className='title-maker-container'>
-            <Board>
+            <Board temperature={0.8} topP={1.0}>
                 <Board.Text />
                 <Column>
                     <Row>

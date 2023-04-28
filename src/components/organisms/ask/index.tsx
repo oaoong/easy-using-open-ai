@@ -7,7 +7,7 @@ import './style.scss';
 export default function Ask() {
     return (
         <div className='ask-container'>
-            <Board>
+            <Board temperature={0.2} topP={1}>
                 <Board.Text />
                 <Column>
                     <Row>

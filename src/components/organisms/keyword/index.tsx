@@ -7,7 +7,7 @@ import './style.scss';
 export default function Keyword() {
     return (
         <div className='keyword-container'>
-            <Board>
+            <Board temperature={0.5} topP={1.0}>
                 <Board.Text />
                 <Column>
                     <Row>

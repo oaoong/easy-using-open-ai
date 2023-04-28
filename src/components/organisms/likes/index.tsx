@@ -7,7 +7,7 @@ import './style.scss';
 export default function Likes() {
     return (
         <div className='likes-container'>
-            <Board>
+            <Board temperature={0} topP={1.0}>
                 <Board.Text />
                 <Column>
                     <Row>
