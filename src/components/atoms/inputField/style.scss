@@ -5,10 +5,11 @@
     border: 3px solid myColor.$second-color;
     border-right: none;
     border-radius: 4px 0 0 4px;
-    background-color: #{myColor.$light-color};
+    background-color: #{myColor.$textField-background-color};
     outline: none;
     resize: none;
     overflow: hidden;
+    cursor: default;
 }
 
 .submit-button {

@@ -85,7 +85,6 @@ export default function Board({ children, temperature, topP }: IBoardProps) {
 
     const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         getAnswer.mutate(query);
-        setInputValue('');
         e.preventDefault();
     };
 
