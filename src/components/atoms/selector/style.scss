@@ -2,6 +2,7 @@
 
 .MuiAutocomplete-root {
     display: inline-block;
+    background-color: #{myColor.$textField-background-color};
     width: 40%;
 }
 
